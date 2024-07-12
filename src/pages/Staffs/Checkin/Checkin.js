@@ -11,7 +11,7 @@ const Checkin = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const { checkoutRevation } = useRevation();
-
+  const [quantity, setQuantity] = useState(1);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -44,6 +44,7 @@ const Checkin = () => {
           ? { ...booking, checkOutDate: new Date() }
           : booking
       );
+      alert("Thành công !")
       setData(updatedData);
     } catch (error) {
       console.error("Đã xảy ra lỗi khi checkout:", error);
@@ -102,18 +103,28 @@ const Checkin = () => {
                     {booking.menus.map((menu, index) => (
                       <li key={index}>
                         Menu ID: {menu.menuId},<br />
-                        Quantity: {menu.quantity},<br />
+                        Quantity: {quantity},<br />
                         Price: ${menu.price},<br />
                         Discount: ${menu.discount},<br />
-                        Total: ${menu.total}
+                        Total:  ${menu.quantity * menu.price}
                       </li>
                     ))}
                   </ul>
                 </td>
-                <td>
+                {/* <td>
                   $
                   {booking.menus.reduce((total, menu) => total + menu.total, 0)}
+                </td> */}
+                <td>
+                  ${
+                    booking.menus.reduce(
+                      (total, menu) => total + (quantity * menu.price),
+                      0
+                    )
+                  }
                 </td>
+
+
                 <th>
                   {booking.status == "accepted" && (
                     <Button

@@ -43,13 +43,14 @@ const Login = () => {
         method: "post",
         url: "/auth/login"
       })
-
       const token = JSON.stringify(res.data.data);
       localStorage.setItem("access_token", token);
 
       await notify.info("Đăng nhập thành công");
       console.log("datalogin", data);
+      localStorage.setItem("username", username);
       navigate("/");
+      window.location.reload(); // Refresh trang để cập nhật giao diện
     } catch (error) {
       if (error.response && error.response.data) {
         setErrorMessage(error.response.data.message);

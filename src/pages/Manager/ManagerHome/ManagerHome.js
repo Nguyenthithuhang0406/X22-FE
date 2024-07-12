@@ -14,6 +14,9 @@ import ListMenu from "../../Components/Menu/index.js";
 import AppContext from "antd/es/app/context.js";
 import BookingInfo from "../../Staffs/BookingInfo/BookingInfo.js";
 import Checkin from "../../Staffs/Checkin/Checkin.js";
+import InfoRestaurant from "../../Staffs/InfoRestaurant/InfoRestaurant.js";
+import CreateTable from "../../Staffs/CreateTable/CreateTable.js";
+import StaffBooking from "../../Staffs/StaffBooking/StaffBooking.js";
 
 const ManagerHome = () => {
   const { user } = useContext(AppContext);
@@ -35,6 +38,8 @@ const ManagerHome = () => {
     getItem("Yêu cầu đặt bàn", "3", <WechatWorkOutlined />),
     getItem("Thông tin nhân viên", "4", <UserOutlined />),
     getItem("Checkin/Checkout đơn hàng", "5", <WechatWorkOutlined />),
+    getItem("Tạo bàn ăn", "6", <WechatWorkOutlined />),
+    getItem("Đặt bàn hộ khách", "7", <WechatWorkOutlined />),
   ];
 
   const onClick = (e) => {
@@ -59,20 +64,23 @@ const ManagerHome = () => {
           />
         </div>
 
-          <div className="management-content">
-            {selectedItem ? (
-              <div>
-                <h3 className="content-name">{Items.find(item => item.key === selectedItem)?.label}</h3>
-                {selectedItem === "4" && <Employeemanager />}
-                {selectedItem === "3" && <BookingInfo />}
-                {selectedItem === "2" && <ListMenu />}
-                {selectedItem === "5" && <Checkin />}
-              </div>
-            ) : (
-              <h3 className="content-name">Tìm danh mục muốn xem</h3>
-            )}
-          </div>
-        
+        <div className="management-content">
+          {selectedItem ? (
+            <div>
+              <h3 className="content-name">{Items.find(item => item.key === selectedItem)?.label}</h3>
+              {selectedItem === "4" && <Employeemanager />}
+              {selectedItem === "3" && <BookingInfo />}
+              {selectedItem === "2" && <ListMenu />}
+              {selectedItem === "5" && <Checkin />}
+              {selectedItem === "1" && <InfoRestaurant />}
+              {selectedItem === "6" && <CreateTable />}
+              {selectedItem === "7" && <StaffBooking />}
+            </div>
+          ) : (
+            <h3 className="content-name">Tìm danh mục muốn xem</h3>
+          )}
+        </div>
+
       </div>
     </div>
   );

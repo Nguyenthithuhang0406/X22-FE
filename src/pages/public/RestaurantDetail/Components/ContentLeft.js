@@ -28,7 +28,7 @@ const ContentLeft = ({ restaurant, newReviewText, setNewReviewText, reviews, set
                 url: `/auth/comment/${restaurantId}`
             })
             setReviews(response.data);
-            console.log(response.data);
+            console.log("comment", response.data);
         } catch (error) {
             console.error('Error fetching comments:', error);
         }
