@@ -22,6 +22,15 @@ function useStaff() {
     await getMe();
 
     toast.success("Đăng nhập thành công!");
+
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (user?.type === "manager") {
+      if (!user?.restaurantId) {
+        navigate("/createdRestaurant")
+      }
+      else (navigate('/managerhome'))
+    }
     // navigate("/createdRestaurant");
     // navigate("/createStaffAccount");
     // navigate("/");
