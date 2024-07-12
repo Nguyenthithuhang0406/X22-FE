@@ -59,15 +59,15 @@ const App = () => {
   }, []);
   useEffect(() => {
 
-      if(user?.type == "manager"){
-        if(!user?.restaurantId){
-          navigate("/createdRestaurant")
-        }
-        else( navigate('/managerhome'))
+    if (user?.type == "manager") {
+      if (!user?.restaurantId) {
+        navigate("/createdRestaurant")
       }
-      // else(user?.type == "manager" || user?.type == "staff") {
-      //   navigate('/managerhome');
-      // }
+      else (navigate('/managerhome'))
+    }
+    // else(user?.type == "manager" || user?.type == "staff") {
+    //   navigate('/managerhome');
+    // }
   }, [user]);
 
   return (
@@ -90,8 +90,8 @@ const App = () => {
           <Route path="/updatedRestaurant" element={<UpdateRestaurant />} />
           <Route path="/checkin" element={<Checkin />} />
           <Route path="/checkout" element={<Checkout />} />
-          <Route path="/loginStaff" element={<StaffLogin />} />
-          <Route path="/registerStaff" element={<StaffRegister />} />
+          <Route path="/loginStaff" element={<Layout><StaffLogin/></Layout>} />
+          <Route path="/registerStaff" element={<Layout><StaffRegister/></Layout>} />
           <Route path="/managerlogin" element={<ManagerLogin />} />
           <Route path="/managerhome" element={<ManagerHome />} />
         </Routes>

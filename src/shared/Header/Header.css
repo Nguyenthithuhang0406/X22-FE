@@ -1,4 +1,5 @@
 .header {
+    position: fixed;
     top: 0;
     padding: 0 15px;
     width: 100%;
@@ -9,21 +10,26 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid hsla(0, 0%, 71%, .53);
+    /* border-bottom: 1px solid hsla(0, 0%, 71%, .53); */
 }
 .header img {
     width: 150px;
     height: 37px;
 }
-.login{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 200px;
 
+.btlg{
+    display: flex;
 }
-.iconuser{
-    width: 30px;
-    height: 30px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+.login-btn{
+    display: flex;
+}
+.bt1{
+    border-radius: 6px;
+    margin-right: 10px;
+}
+@media screen and (max-width: 768px) {
+    .header{
+        top: 30px;
+    }
+    
 }

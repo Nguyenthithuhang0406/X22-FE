@@ -1,3 +1,4 @@
+/* eslint-disable*/
 
 import React, { useState } from 'react';
 import { Input, Button, AutoComplete, Select } from 'antd';
@@ -47,7 +48,7 @@ const SearchWeb = ({ onSearch }) => {
 
     return (
         <div className='gradient-background'>
-            <h1>Tìm kiếm nhà hàng</h1>
+            {/* <h1>Tìm kiếm nhà hàng</h1> */}
             <AutoComplete
                 style={{ width: 500 }}
                 options={options.map(option => ({
@@ -63,7 +64,7 @@ const SearchWeb = ({ onSearch }) => {
                 onChange={handleSearchChange}
             />
 
-            <Button
+            <Button classNames='btn-search'
                 type="primary"
                 className='btntam'
                 onClick={handleSearchSubmit}

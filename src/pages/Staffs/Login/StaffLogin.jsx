@@ -40,9 +40,14 @@ const StaffLogin = () => {
     };
 
     return (
-        <div className='tam'>
+        <div className='tam'
+            style={{
+                backgroundImage:
+                    "url('https://phongcachmoc.vn/upload/images/tin-tuc/20%20mau%20nha%20hang%20dep/update-07-2022/Sushi-World-Ton-That-Thiep-1.JPG')",
+                height: "100vh",
+            }}>
             <div className='form'>
-                <p className='td-form'><b>Đăng nhập</b></p>
+                <p className='td-form'><b>Nhà hàng đăng nhập</b></p>
                 <Form className='form-container' onSubmit={handleSubmit(onSubmit)}>
                     <Form.Group>
                         <Form.Control
@@ -65,15 +70,15 @@ const StaffLogin = () => {
                     <br />
                     <Button className="dk" variant='success' type='submit'>Đăng nhập</Button>
                     <br />
-                    <br/>
+                    <br />
                 </Form>
                 {/* <p className='forget'>Quên mật khẩu</p> */}
-                <div className='cc'>
+                {/* <div className='cc'>
                     <p>Bạn chưa có tài khoản?</p>
                     <Link to='/registerStaff'>
                         <Button variant='info' className='dn'>Đăng kí</Button>
                     </Link>
-                </div>
+                </div> */}
             </div>
         </div>
     )

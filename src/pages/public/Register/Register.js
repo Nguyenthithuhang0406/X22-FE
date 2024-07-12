@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState } from "react";
 import "./style.css";
 import { Button, Input, message } from "antd";
@@ -45,6 +46,7 @@ const Register = () => {
         method:"post",
         url:"/auth/register"
       })
+      console.log("data", data);
       await notify.info("Dằng ký tài khoản thành công");
       navigate("/userlogin");
     } catch (error) {
