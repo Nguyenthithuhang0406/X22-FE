@@ -6,7 +6,6 @@ import { Controller, useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import ErrorsMessage from "../../Components/ErrorMessages/index.js";
-import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate } from "react-router-dom";
 import { request } from "../../../utils/axios-http.js";
@@ -30,21 +29,25 @@ const Login = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
+
   const [notify, contextHolder] = message.useMessage();
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
+
   const onSubmit = async (data) => {
     const { username, password, loginTypeValue = 2 } = data;
+
     try {
       const res = await request({
         data: { username, password, loginTypeValue },
         method: "post",
         url: "/auth/login"
       })
-      console.log("res", res);
       const token = JSON.stringify(res.data.data);
       localStorage.setItem("access_token", token);
+
       await notify.info("Đăng nhập thành công");
+      console.log("datalogin", data);
       localStorage.setItem("username", username);
       navigate("/");
       window.location.reload(); // Refresh trang để cập nhật giao diện

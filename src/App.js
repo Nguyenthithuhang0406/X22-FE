@@ -1,3 +1,5 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React, { createContext, useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
@@ -51,12 +53,16 @@ const App = () => {
   useEffect(() => {
     if (user?.authenticating) {
 
-    } else {
-
-      if (user?.type == "manager" || user?.type == "staff") {
-        navigate('/managerhome');
+      if (user?.type == "manager") {
+        if (!user?.restaurantId) {
+          navigate("/createdRestaurant")
+        }
+        else (navigate('/managerhome'))
       }
     }
+    // else(user?.type == "manager" || user?.type == "staff") {
+    //   navigate('/managerhome');
+    // }
   }, [user]);
 
   return (
@@ -78,8 +84,8 @@ const App = () => {
           <Route path="/updatedRestaurant" element={<UpdateRestaurant />} />
           <Route path="/checkin" element={<Checkin />} />
           <Route path="/checkout" element={<Checkout />} />
-          <Route path="/loginStaff" element={<StaffLogin />} />
-          <Route path="/registerStaff" element={<StaffRegister />} />
+          <Route path="/loginStaff" element={<Layout><StaffLogin/></Layout>} />
+          <Route path="/registerStaff" element={<Layout><StaffRegister/></Layout>} />
           <Route path="/managerlogin" element={<ManagerLogin />} />
           <Route path="/managerhome" element={<ManagerHome />} />
         </Routes>

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { AimOutlined, EyeFilled, EyeOutlined, StarFilled, StarOutlined } from '@ant-design/icons';
 import React from 'react'
 

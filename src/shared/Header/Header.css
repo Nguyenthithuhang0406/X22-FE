@@ -1,4 +1,5 @@
 .header {
+    position: fixed;
     top: 0;
     padding: 0 15px;
     width: 100%;
@@ -9,50 +10,26 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid hsla(0, 0%, 71%, .53);
+    /* border-bottom: 1px solid hsla(0, 0%, 71%, .53); */
 }
 .header img {
     width: 150px;
     height: 37px;
 }
-.login{
+
+.btlg{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 200px;
-
 }
-.iconuser{
-    width: 30px;
-    height: 30px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
-/* css */
-/* Header.css */
-.header {
+.login-btn{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
-.header img {
-    width: 150px;
-    cursor: pointer;
-}
-
-.login-btn button {
-    margin-left: 10px;
-}
-
-.login-btn span {
+.bt1{
+    border-radius: 6px;
     margin-right: 10px;
-    font-weight: bold;
 }
-
-.login-btn button,
-.login-btn span {
-    font-size: 14px;
+@media screen and (max-width: 768px) {
+    .header{
+        top: 30px;
+    }
+    
 }
